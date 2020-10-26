@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body ng-app="MyApp" ng-controller="MyCtrl">
+    <div class="container">
+        <div class="jumbotron py-3">
+            <h1 class="text-center">{{title}}</h1>
+            <p class="pt-10">Stay-at-home directives are issued to protect you, your family, and the public at large. Do
+                your part by staying home. Now is not the time for a play date for kids, not the time for a dinner for
+                adults, and not
+                the time for a personal visit to the elderly. Spring break plans should be cancelled, birthday parties
+                should be postponed, extended family dinners should be suspended. If the NBA can cancel their basketball
+                games, you can cancel your in-person social calendar. Please, stay home.</p>
+
+            <!-- allData -->
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h3>confirmed cases</h3>
+                                <h3>{{allData.confirmed.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h3>recoverd cases</h3>
+                                <h3>{{allData.recovered.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h3>death cases</h3>
+                                <h3>{{allData.deaths.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- End allData -->
+            
+                <h1 class="text-center mt-4 text-uppercase">{{CountryName}} status</h1>
+            <input ng-model="CountryName" ng-change="getCountData()" class="form-control mt-4" placeholder="Enter your country name here">
+                <!-- country data -->
+                <div class="container-fluid">
+                <div class="row text-center mt-4" ng-if="countryData">
+                    <div class="col-md-4">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h3>confirmed cases</h3>
+                                <h3>{{countryData.confirmed.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h3>recoverd cases</h3>
+                                <h3>{{countryData.recovered.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h3>death cases</h3>
+                                <h3>{{countryData.deaths.value}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+                <!-- end country data -->
+        </div>
+    </div>
+</body>
+
+</html>
