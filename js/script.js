@@ -50,20 +50,9 @@ app.controller('MyCtrl', ($scope, $http) => {
         $scope.confirmed = allConfirmedCaseInState;
         $scope.recover = allRecoveredCasesInState;
         $scope.death = allDeathCaseInState;
-        for (let i = 0; i < allResponseData.length; i++) {
-            console.log(`state name is ${allStateName[i]}, active case is ${allActiveCaseInState[i]}, Confirmed Case is ${allConfirmedCaseInState[i]}, Recovered Cases is ${allRecoveredCasesInState[i]}, Death Case ${allDeathCaseInState[i]}`);
-        }
     },
         (error) => {
             console.log(error);
         }
     );
-    $scope.getStateData = () => {
-        let state = $scope.stateName;
-        if (state == '') {
-            $scope.stateData = undefined;
-            return;
-        }
-        $http.get(`${indiaStateURL}`)
-    }
 });
